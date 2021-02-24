@@ -1,0 +1,331 @@
+/* You can add global styles to this file, and also import other style files */
+
+$app-colors: (
+    primary: (
+        1: #3470E4,
+        2: #060322,
+        3: #FFFFFF
+    ),
+    secondary: (
+        red:  #CA534F,
+        yellow:  #EEC121,
+        green: #54A585,
+        purple: #6E78BF
+    ),
+    shade: (
+        90: #1F1C38,
+        80: #38354E,
+        70: #514F64,
+        60: #6A687A,
+        50: #828190
+    ),
+    tint: (
+        40:#9B9AA7,
+        30:#B4B3BD,
+        20:#CDCDD3,
+        10:#E6E6E9,
+        00:#F8F7F8
+    ),
+    secondary-red: (
+        80:#D57572,
+        60:#DF9895,
+        40:#EABAB9,
+        20:#F4DDDC
+    ),
+    secondary-yellow: (
+        80:#F1CD4D,
+        60:#F5DA7A,
+        40:#F8E6A6,
+        20:#FCF3D3
+    ),
+    secondary-green: (
+        80:#76B79D,
+        60:#98C9B6,
+        40:#BBDBCE,
+        20:#DDEDE7
+    ),
+    secondary-purple: (
+        80:#8B93CC,
+        60:#A8AED9,
+        40:#C5C9E5,
+        20:#E2E4F2
+    ),
+    alert: (
+        primary:#3470E4,
+        warning:#FF832B,
+        danger:#DA1E28,
+        info:#FFAB00,
+        success:#00A656
+    ),
+    background: (
+        80:#EFF4FD,
+        60:#F7F9FE
+    )
+);
+
+$font-family: 'Open Sans';
+$fallback-font: 'Segoe UI';
+
+$main-colors: 'secondary-red','secondary-yellow','secondary-green','secondary-purple';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: $font-family, $fallback-font;
+    color: map-get(map-get($app-colors, 'primary'), 2);
+    font-style: normal;
+    background-color: map-get(map-get($app-colors, 'background'), 60);
+}
+
+/*--------------------------- HEADINGS ---------------------------*/
+h1 {
+    font-weight: 600;
+    font-size: 96px;
+    line-height: 131px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 82px;
+}
+
+h3 {
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 65px;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 46px;
+}
+
+h5 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+}
+
+h6 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+}
+
+/*--------------------------- TYPOGRAPHY ---------------------------*/
+.text {
+    font-size: 14px;
+}
+
+.text-lg {
+    font-size: 16px;
+}
+
+.text-sm {
+    font-size: 12px;
+}
+
+.text-xs {
+    font-size: 10px;
+}
+
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .text-#{$item}-#{$shade} {
+            color: #{$value};
+        }
+    }
+}
+
+/*--------------------------- FONT WEIGHTS ---------------------------*/
+$font-weights: 100, 200, 300, 400, 500, 600, 700, 800, 900, normal, inherit, lighter;
+@each $weight in $font-weights {
+    .fw-#{$weight} {
+        font-weight: #{$weight};
+    }
+}
+
+/*--------------------------- BORDERS ---------------------------*/
+.border {
+    border-width: 1px;
+    border-style: solid;
+    border-color: map-get(map-get($app-colors, 'tint'), 20);
+}
+
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .border-#{$item}-#{$shade} {
+            border-color: #{$value};
+        }
+    }
+}
+
+/*--------------------------- SHADOWS ---------------------------*/
+.shadow-01 {
+    box-shadow: 0px 2px 8px map-get(map-get($app-colors, 'shade'), 50);
+}
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .shadow-01.shadow-#{$item}-#{$shade} {
+            box-shadow: 0px 2px 8px #{$value};
+        }
+    }
+}
+
+.shadow-02 {
+    box-shadow: 0px 4px 16px map-get(map-get($app-colors, 'shade'), 50);
+}
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .shadow-02.shadow-#{$item}-#{$shade} {
+            box-shadow: 0px 4px 16px #{$value};
+        }
+    }
+}
+
+.shadow-03 {
+    box-shadow: 0px 8px 24px map-get(map-get($app-colors, 'shade'), 50);
+}
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .shadow-03.shadow-#{$item}-#{$shade} {
+            box-shadow: 0px 8px 24px #{$value};
+        }
+    }
+}
+
+.shadow-04 {
+    box-shadow: 0px 16px 48px map-get(map-get($app-colors, 'shade'), 50);
+}
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .shadow-04.shadow-#{$item}-#{$shade} {
+            box-shadow: 0px 16px 48px #{$value};
+        }
+    }
+}
+
+.shadow-05 {
+    box-shadow: 0px 16px 24px map-get(map-get($app-colors, 'shade'), 50);
+}
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .shadow-05.shadow-#{$item}-#{$shade} {
+            box-shadow: 0px 16px 24px #{$value};
+        }
+    }
+}
+
+/*--------------------------- MARGINS AND PADINGS ---------------------------*/
+$spacing-direction: (
+    r: right,
+    t: top,
+    b: bottom,
+    l: left
+);
+$spacer: 1;
+$app-spacing: (
+    1: $spacer * 0.25em,
+    2: $spacer * 0.5em,
+    3: $spacer * 1em,
+    4: $spacer * 1.5em,
+    5: $spacer * 3em,
+    n1: $spacer * -0.25em,
+    n2: $spacer * -0.5em,
+    n3: $spacer * -1em,
+    n4: $spacer * -1.5em,
+    n5: $spacer * -3em,
+    auto: auto
+);
+
+@each $direction, $dirvalue in $spacing-direction {
+    @each $space, $value in $app-spacing {
+        .m#{$direction}-#{$space} {
+            margin-#{$dirvalue}: #{$value};
+        }
+    }
+}
+
+@each $space, $value in $app-spacing {
+    .m-#{$space} {
+        margin: #{$value};
+    }
+}
+
+@each $direction, $dirvalue in $spacing-direction {
+    @each $space, $value in $app-spacing {
+        .p#{$direction}-#{$space} {
+            padding-#{$dirvalue}: #{$value};
+        }
+    }
+}
+
+@each $space, $value in $app-spacing {
+    .p-#{$space} {
+        padding: #{$value};
+    }
+}
+
+/*--------------------------- FLEX ---------------------------*/
+/*--------------------------- VISIBILITY ---------------------------*/
+/*--------------------------- FLOAT ---------------------------*/
+/*--------------------------- SCROLL ---------------------------*/
+/*--------------------------- POSITION ---------------------------*/
+/*--------------------------- SIZING ---------------------------*/
+
+
+/*--------------------------- BUTTONS ---------------------------*/
+.btn {
+    align-items: flex-start;
+    border-radius: 4px;
+    color: map-get(map-get($app-colors, 'primary'), 3);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 8px 12px;
+    border: unset;
+
+    &:hover {
+        box-shadow: 0px 2px 3px rgba(5, 34, 89, 0.26);
+    }
+    &:disabled {
+        background-color: map-get(map-get($app-colors, 'shade'), 10);
+        color: map-get(map-get($app-colors, 'shade'), 30);
+    }
+    &:focus {
+        border: unset;
+        outline: unset;
+    }
+}
+.btn-text-dark {
+    color: map-get(map-get($app-colors, 'primary'), 2);
+}
+.btn-sm {
+    padding: 4px 8px;
+}
+.btn-lg {
+    padding: 16px 24px;
+}
+.btn-link {
+    color: map-get(map-get($app-colors, 'primary'), 1);
+    background-color: map-get(map-get($app-colors, 'tint'), 00);
+}
+.btn-secondary {
+    color: map-get(map-get($app-colors, 'shade'), 90);
+    background-color: map-get(map-get($app-colors, 'tint'), 00);
+}
+@each $item, $color in $app-colors {
+    @each $shade, $value in $color {
+        .btn.btn-#{$item}-#{$shade} {
+            background-color: #{$value};
+        }
+    }
+}
+
+/*--------------------------- NAV BARS ---------------------------*/
